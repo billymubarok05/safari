@@ -1,0 +1,540 @@
+/* Universal Styles & Reset */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4;
+}
+
+/* Container for content centering */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Headings */
+h1, h2, h3 {
+    font-family: 'Roboto', sans-serif;
+    color: #1a1a1a;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 2.5em;
+    padding-top: 40px;
+    /* Tambahan untuk efek visual pada judul */
+    position: relative;
+    padding-bottom: 15px;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background-color: #4CAF50; /* Warna hijau khas Bob Marley */
+    border-radius: 2px;
+}
+
+
+h3 {
+    font-size: 1.5em;
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+/* --- Header & Navigation --- */
+header {
+    background-color: #222;
+    color: #fff;
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* Ensure header is above video */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.4); /* Bayangan lebih kuat */
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+nav .logo h1 {
+    margin: 0;
+    font-size: 1.8em;
+    color: #4CAF50;
+    text-align: left;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5); /* Efek teks bayangan */
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 25px;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease, transform 0.2s ease; /* Tambah transisi transform */
+}
+
+.nav-links a:hover {
+    color: #4CAF50;
+    transform: translateY(-2px); /* Efek naik sedikit saat hover */
+}
+
+/* Burger Icon (for mobile navigation) */
+.burger {
+    display: none;
+    cursor: pointer;
+}
+
+.burger div {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+
+/* --- Full Background Video Wrapper --- */
+.video-background-wrapper {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#full-bg-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -2;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100%;
+    background-color: rgba(0, 0, 0, 0); /* Video tidak transparan */
+    z-index: -1;
+}
+
+/* --- Hero Section within Video Wrapper --- */
+.hero {
+    position: relative;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 0 20px;
+    text-align: center;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.5); /* Background gelap transparan untuk teks yang terbaca */
+    color: #fff;
+    box-shadow: inset 0 -10px 20px rgba(0,0,0,0.5); /* Bayangan internal di bagian bawah */
+}
+
+.hero-content {
+    background-color: transparent;
+    padding: 40px;
+    border-radius: 8px;
+    max-width: 700px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.5); /* Bayangan lebih menonjol */
+    transform: translateY(0);
+    transition: transform 0.5s ease-out; /* Transisi untuk efek loading */
+}
+
+/* Mungkin Anda ingin efek ini terjadi saat halaman dimuat atau scroll */
+/* .hero-content.animate {
+    transform: translateY(20px);
+} */
+
+
+.hero-content h2 {
+    font-size: 3.5em;
+    margin-bottom: 20px;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7); /* Efek teks bayangan lebih kuat */
+}
+
+.hero-content p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.6);
+}
+
+.btn {
+    display: inline-block;
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 700;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Transisi lebih banyak */
+    border: 2px solid #4CAF50; /* Border untuk efek hover */
+}
+
+.btn:hover {
+    background-color: #388E3C; /* Warna hijau sedikit lebih gelap */
+    transform: translateY(-5px) scale(1.02); /* Efek naik dan sedikit membesar */
+    box-shadow: 0 8px 20px rgba(76, 175, 80, 0.4); /* Bayangan hijau saat hover */
+}
+
+/* --- About Section within Video Wrapper --- */
+.about-section {
+    position: relative;
+    padding: 80px 0; /* Padding lebih besar */
+    background-color: #ffffff; /* Solid white background */
+    color: #333;
+    width: 100%;
+    z-index: 1;
+    box-shadow: 0 -10px 20px rgba(0,0,0,0.15); /* Bayangan lebih kuat di bagian atas */
+    border-top: 5px solid #4CAF50; /* Garis pemisah hijau */
+}
+
+.about-section h2 {
+    color: #1a1a1a;
+    margin-bottom: 40px; /* Jarak bawah judul lebih besar */
+}
+
+.about-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px; /* Jarak antar elemen lebih besar */
+    text-align: center;
+    padding: 20px;
+    background-color: #fcfcfc; /* Warna latar belakang kontainer konten */
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Bayangan halus */
+}
+
+.about-content .profile-img {
+    width: 280px; /* Ukuran gambar lebih besar */
+    height: 280px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 7px solid #4CAF50; /* Border lebih tebal */
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2); /* Bayangan lebih kuat */
+    transition: transform 0.4s ease; /* Transisi untuk efek hover */
+}
+
+.about-content .profile-img:hover {
+    transform: scale(1.05) rotate(2deg); /* Sedikit membesar dan berputar */
+}
+
+/* --- Discography Section --- */
+.discography-section {
+    padding: 80px 0;
+    background-color: #e0f2f1; /* Warna latar belakang baru yang lebih cerah */
+    border-top: 1px dashed #bbb; /* Garis putus-putus */
+    border-bottom: 1px dashed #bbb;
+}
+
+.albums-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px; /* Jarak antar album lebih besar */
+    padding-top: 30px;
+}
+
+.album-item {
+    background-color: #fff;
+    border-radius: 12px; /* Border radius lebih besar */
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15); /* Bayangan lebih kuat */
+    text-align: center;
+    padding: 25px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    border: 1px solid #ddd; /* Border halus */
+}
+
+.album-item:hover {
+    transform: translateY(-8px) scale(1.01); /* Efek naik lebih tinggi dan sedikit membesar */
+    box-shadow: 0 12px 25px rgba(0,0,0,0.25); /* Bayangan lebih intens */
+}
+
+.album-item img {
+    max-width: 100%;
+    border-radius: 8px; /* Border radius pada gambar */
+    margin-bottom: 20px;
+    height: 220px; /* Ukuran gambar sedikit lebih besar */
+    object-fit: cover;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.album-item h3 {
+    font-size: 1.4em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+/* --- Legacy Section --- */
+.legacy-section {
+    padding: 80px 0;
+    background-color: #fdfdfd; /* Warna latar belakang terang */
+}
+
+.legacy-section ul {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 40px;
+}
+
+.legacy-section ul li {
+    background-color: #ecf8e0; /* Warna hijau sangat muda */
+    margin-bottom: 12px; /* Jarak antar list item */
+    padding: 20px 25px;
+    border-left: 6px solid #4CAF50; /* Border lebih tebal */
+    border-radius: 8px;
+    font-size: 1.15em; /* Ukuran font sedikit lebih besar */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08); /* Bayangan halus */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.legacy-section ul li:hover {
+    background-color: #e0f2d4; /* Warna sedikit lebih gelap saat hover */
+    transform: translateX(5px); /* Geser sedikit ke kanan */
+}
+
+.legacy-section ul li strong {
+    color: #222;
+}
+
+/* --- Gallery Section --- */
+.gallery-section {
+    padding: 80px 0;
+    background-color: #e6f7ff; /* Warna latar belakang biru muda */
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px; /* Jarak antar gambar lebih besar */
+    padding-top: 30px;
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: 220px; /* Ukuran gambar sedikit lebih besar */
+    object-fit: cover;
+    border-radius: 10px; /* Border radius lebih besar */
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15); /* Bayangan lebih kuat */
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    border: 3px solid #fff; /* Border putih yang menonjol */
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.08) rotate(3deg); /* Efek membesar dan berputar lebih kuat */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3); /* Bayangan lebih intens */
+    border-color: #4CAF50; /* Border hijau saat hover */
+}
+
+/* --- Contact Section --- */
+.contact-section {
+    padding: 80px 0;
+    background-color: #fff;
+    text-align: center;
+}
+
+.social-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px; /* Jarak antar ikon sosial lebih besar */
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #333;
+    background-color: #f0f0f0; /* Warna latar belakang ikon sosial */
+    padding: 12px 25px; /* Padding lebih besar */
+    border-radius: 30px; /* Border radius lebih bulat */
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    font-weight: 600;
+    border: 1px solid #ddd;
+}
+
+.social-links a:hover {
+    background-color: #4CAF50;
+    color: #fff;
+    transform: translateY(-3px); /* Efek naik sedikit */
+    box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3); /* Bayangan hijau */
+}
+
+.social-links img.social-icon {
+    width: 28px; /* Ukuran ikon lebih besar */
+    height: 28px;
+    margin-right: 12px;
+    border-radius: 50%;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.contact-email a {
+    color: #4CAF50;
+    text-decoration: none;
+    font-weight: 700; /* Font lebih tebal */
+    font-size: 1.1em;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+.contact-email a:hover {
+    color: #388E3C;
+    text-decoration: underline;
+}
+
+/* --- Footer --- */
+footer {
+    background-color: #1a1a1a; /* Warna background footer lebih gelap */
+    color: #eee; /* Warna teks lebih terang */
+    text-align: center;
+    padding: 30px 0; /* Padding lebih besar */
+    margin-top: 60px; /* Jarak atas lebih besar */
+    box-shadow: inset 0 5px 15px rgba(0,0,0,0.3); /* Bayangan internal */
+}
+
+footer p {
+    margin: 8px 0;
+    font-size: 1em;
+}
+
+/* --- Responsive Design (Media Queries) --- */
+@media (min-width: 768px) {
+    .about-content {
+        flex-direction: row;
+        text-align: left;
+    }
+    .about-content .profile-img {
+        flex-shrink: 0;
+        margin-right: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Navigation adjustments */
+    .nav-links {
+        position: fixed;
+        right: 0;
+        top: 0;
+        height: 100vh;
+        background-color: #222;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 60%;
+        transform: translateX(100%);
+        transition: transform 0.5s ease-in;
+        padding-top: 80px;
+    }
+
+    .nav-links.nav-active {
+        transform: translateX(0%);
+    }
+
+    .nav-links li {
+        opacity: 0;
+        margin: 20px 0;
+    }
+
+    .burger {
+        display: block;
+    }
+
+    /* Animate burger */
+    .toggle .line1 {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+    .toggle .line2 {
+        opacity: 0;
+    }
+    .toggle .line3 {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+
+    /* Hero section font size adjustment */
+    .hero-content h2 {
+        font-size: 2.5em;
+    }
+
+    .hero-content p {
+        font-size: 1em;
+    }
+
+    /* General section padding adjustment */
+    section {
+        padding: 40px 0;
+    }
+
+    h2 {
+        font-size: 2em;
+    }
+
+    .social-links a {
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* About section image on smaller screens */
+    .about-content .profile-img {
+        width: 180px;
+        height: 180px;
+    }
+
+    .albums-grid, .gallery-grid {
+        grid-template-columns: 1fr; /* Kolom tunggal untuk mobile */
+    }
+}
+
+/* Keyframes for burger menu animation (if not already present) */
+@keyframes navLinkFade {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
